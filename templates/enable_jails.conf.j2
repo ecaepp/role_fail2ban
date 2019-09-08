@@ -1,0 +1,5 @@
+{# Enables jail b looping over "enable_jails #}
+{% for jail in enable_jails %}
+[{{ jail }}]
+enable = true
+{% endfor %}

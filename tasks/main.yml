@@ -1,0 +1,16 @@
+---
+- name: Install fail2ban-{{ version }}
+  apt:
+    name: fail2ban={{ version }}
+    state: present
+    update_cache: true
+
+- name: Generate config to enable jails
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+  loop:
+    - { src: 'templates/enable_jails.conf.j2', dest: '/etc/fail2ban/jail.d/enabled_jails.conf' }
+    - { src: 'templates/jail.conf.j2', dest: '/etc/fail2ban/fail2ban.d/jail.local' }

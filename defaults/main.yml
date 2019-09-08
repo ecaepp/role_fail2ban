@@ -1,0 +1,104 @@
+---
+version: 0.10.2-2
+ignoreip:
+ignore_command:
+ban_time: 10m
+find_time: 10m
+max_retry: 5
+backend: auto
+usedns: warn
+log_encoding: auto
+jail_enabled: false
+filter_mode: normal
+filter: "%(__name__)s[mode=%(mode)s]"
+
+dest_mail: me@me.com
+sender_mail: fail2ban@donotreply.com
+mta: sendmail
+protocol: tcp
+chain: <known/chain>
+ban_ports: 0:65535
+fail2ban_agent: Fail2Ban/%(fail2ban_version)s
+
+ban_action: iptables-multiport
+ban_action_allports: iptables-allports
+
+enable_jails:
+  - sshd
+
+## Possible jail options ##
+
+# sshd
+# dropbear
+# selinux-ssh
+# apache-auth
+# apache-badbots
+# apache-noscript
+# apache-overflows
+# apache-nohome
+# apache-botsearch
+# apache-fakegooglebot
+# apache-modsecurity
+# apache-shellshock
+# openhab-auth
+# nginx-http-auth
+# nginx-limit-req
+# nginx-botsearch
+# php-url-fopen
+# suhosin
+# roundcube-auth
+# openwebmail
+# horde
+# groupoffice
+# sogo-auth
+# tine20
+# drupal-auth
+# guacamole
+# monit
+# webmin-auth
+# froxlor-auth
+# squid
+# 3proxy
+# proftpd
+# pure-ftpd
+# gssftpd
+# wuftpd
+# vsftpd
+# assp
+# courier-smtp
+# postfix
+# postfix-rbl
+# sendmail-auth
+# sendmail-reject
+# qmail-rbl
+# dovecot
+# sieve
+# solid-pop3d
+# exim
+# exim-spam
+# kerio
+# courier-auth
+# postfix-sasl
+# perdition
+# squirrelmail
+# cyrus-imap
+# uwimap-auth
+# named-refused
+# asterisk
+# freeswitch
+# mysqld-auth
+# mongodb-auth
+# recidive
+# pam-generic
+# xinetd-fail
+# stunnel
+# ejabberd-auth
+# portsentry
+# pass2allow-ftp
+# murmur
+# screensharingd
+# haproxy-http-auth
+# slapd
+# domino-smtp
+# phpmyadmin-syslog
+# zoneminder
